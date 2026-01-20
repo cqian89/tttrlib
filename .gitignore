@@ -1,6 +1,7 @@
 build/
 bld-dir/
 dist/
+src/tttrlib/
 doc/auto_examples
 tmp/
 .vscode
@@ -27,3 +28,8 @@ doc/paper*
 
 # Optimization documentation
 optimization-docs/
+
+# custom
+AGENTS.md
+TODO.md
+# sample_spc/
