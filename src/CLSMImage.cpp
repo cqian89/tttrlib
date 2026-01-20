@@ -391,7 +391,7 @@ CLSMImage::CLSMImage(
                 this->settings.marker_line_start = 2;  // BH line marker channel
             }
             if (this->settings.marker_line_stop == 2) {  // Check if still at CLSMSettings default
-                this->settings.marker_line_stop = -1;  // BH has no stop marker, uses duration
+                this->settings.marker_line_stop = 3;  // BH line stop marker channel
             }
             this->settings.marker_event_type = 1; // BH marker event type is 1 (standard)
             

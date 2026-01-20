@@ -1,4 +1,5 @@
 import numpy as np
+import warnings
 from typing import Dict, Any, List
 
 
@@ -18,6 +19,11 @@ def parse_bh_set_file(set_filename: str) -> Dict[str, Any]:
         - 'n_lines': int (from SP_IMG_Y)
         - 'use_pixel_markers': bool (from SP_PIX_CLK == 1)
     """
+    warnings.warn(
+        "This function is deprecated. Use CLSMImage with reading_routine=CLSM_BH_SPC130 instead.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
     settings = {}
     try:
         # BH files are often Windows-encoded (cp1252)
@@ -70,6 +76,11 @@ def detect_frame1_extra_line(
     bool
         True if Frame 1 has an extra initialization line that should be skipped
     """
+    warnings.warn(
+        "This function is deprecated. Use CLSMImage with reading_routine=CLSM_BH_SPC130 instead.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
     # Get indices of all marker events
     # We use get_selection_by_type if available, otherwise fallback to numpy
     try:
@@ -139,6 +150,11 @@ def get_adjusted_frame_markers(
         List of adjusted frame start indices. If Frame 1 has an extra line,
         its start index is moved to after the first line marker.
     """
+    warnings.warn(
+        "This function is deprecated. Use CLSMImage with reading_routine=CLSM_BH_SPC130 instead.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
     try:
         marker_indices = tttr.get_selection_by_type(marker_event_type)
     except AttributeError:
@@ -215,6 +231,11 @@ def prepare_bh_clsm_settings(
         - 'skip_first_line_frame1': bool (True if Frame 1 has extra line)
         - 'marker_frame_start': list (adjusted frame markers if needed)
     """
+    warnings.warn(
+        "This function is deprecated. Use CLSMImage with reading_routine=CLSM_BH_SPC130 instead.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
     settings = {}
     if set_filename:
         settings.update(parse_bh_set_file(set_filename))
